@@ -2,7 +2,7 @@
 
 ## 🐛 Common Issues and Solutions
 
-### 1. "ANTHROPIC_API_KEY not found" Error
+### 1. "GROQ_API_KEY not found" Error
 
 **Problem**: Backend can't find your API key
 
@@ -13,11 +13,11 @@ ls -la .env  # Linux/Mac
 dir .env     # Windows
 
 # Check the content
-cat .env     # Should show: ANTHROPIC_API_KEY=sk-ant-...
+cat .env     # Should show: GROQ_API_KEY=gsk_...
 
 # Make sure there are no quotes around the key
-# ❌ Wrong: ANTHROPIC_API_KEY="sk-ant-..."
-# ✅ Right: ANTHROPIC_API_KEY=sk-ant-...
+# ❌ Wrong: GROQ_API_KEY="gsk_..."
+# ✅ Right: GROQ_API_KEY=gsk_...
 
 # Restart Docker containers
 docker-compose down
@@ -164,17 +164,16 @@ docker system df
 1. **Check API key is valid**:
 ```bash
 # Test the API key manually
-curl https://api.anthropic.com/v1/messages \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
+curl https://api.groq.com/openai/v1/chat/completions \
+  -H "Authorization: Bearer $GROQ_API_KEY" \
   -H "content-type: application/json" \
-  -d '{"model":"claude-haiku-4-5-20251001","max_tokens":10,"messages":[{"role":"user","content":"Hi"}]}'
+  -d '{"model":"llama-3.3-70b-versatile","messages":[{"role":"user","content":"Hi"}],"max_tokens":10}'
 ```
 
 2. **Check backend logs**:
 ```bash
 docker-compose logs backend
-# Look for errors related to Anthropic API
+# Look for errors related to Groq API
 ```
 
 3. **Check rate limits**:
@@ -210,7 +209,7 @@ curl -X POST http://localhost:8000/chat \
 
 4. **Check API key is set**:
 ```bash
-docker-compose exec backend env | grep ANTHROPIC
+docker-compose exec backend env | grep GROQ
 ```
 
 ### 9. Traces Not Appearing in Table

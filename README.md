@@ -4,7 +4,7 @@ A customer support analytics dashboard with AI-powered ticket classification. Bu
 
 ## Features
 
-- 🤖 **AI Chatbot**: Interactive customer support chatbot powered by Claude Haiku
+- 🤖 **AI Chatbot**: Interactive customer support chatbot powered by Groq Llama 3.3
 - 📊 **Real-time Analytics**: Track support metrics and category distribution
 - 🏷️ **Auto-Classification**: Automatically categorize support conversations into 5 categories
 - 📈 **Response Time Tracking**: Monitor chatbot performance
@@ -16,7 +16,7 @@ A customer support analytics dashboard with AI-powered ticket classification. Bu
 - **FastAPI**: Modern Python web framework
 - **SQLAlchemy**: SQL toolkit and ORM
 - **SQLite**: Lightweight database (zero config)
-- **Anthropic SDK**: Claude AI integration (claude-haiku-4-5-20251001)
+- **Groq SDK**: Llama AI integration (llama-3.3-70b-versatile)
 
 ### Frontend
 - **React**: UI library
@@ -50,8 +50,8 @@ supportlens/
 ## Quick Start
 
 ### Prerequisites
-- Docker and Docker Compose
-- Anthropic API key ([get one here](https://console.anthropic.com/))
+- Docker and Docker Compose (optional)
+- Groq API key ([get one here](https://console.groq.com/))
 
 ### Setup
 
@@ -64,7 +64,7 @@ cd llmdemo
 2. **Set up environment variables**
 ```bash
 cp .env.example .env
-# Edit .env and add your Anthropic API key
+# Edit .env and add your Groq API key
 ```
 
 3. **Start the application**
@@ -183,7 +183,7 @@ The application comes with 20+ pre-classified sample traces spanning all categor
 ### Environment Variables
 
 **Backend (.env)**
-- `ANTHROPIC_API_KEY`: Your Anthropic API key (required)
+- `GROQ_API_KEY`: Your Groq API key (required)
 
 **Frontend (frontend/.env)**
 - `VITE_API_URL`: Backend API URL (default: http://localhost:8000)
@@ -206,7 +206,7 @@ The application comes with 20+ pre-classified sample traces spanning all categor
 
 ## Performance
 
-- Uses Claude Haiku for cost-efficient AI responses
+- Uses Groq Llama 3.3 70B for fast, efficient AI responses
 - SQLite for fast, zero-config database
 - Optimized frontend with React and Vite
 - Automatic polling with 10-second intervals

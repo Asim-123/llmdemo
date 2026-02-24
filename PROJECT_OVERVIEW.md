@@ -7,13 +7,13 @@ SupportLens is a real-time customer support analytics dashboard that uses AI to 
 ## ✨ Key Features
 
 ### 1. AI-Powered Chatbot
-- Interactive customer support agent powered by Claude Haiku
+- Interactive customer support agent powered by Groq Llama 3.3 70B
 - Responds to billing, refund, account, cancellation, and general inquiries
 - Professional, concise, and empathetic responses
 - Real-time response time tracking
 
 ### 2. Automatic Classification
-- Uses Claude AI to classify conversations into 5 categories
+- Uses Groq Llama AI to classify conversations into 5 categories
 - Smart classification based on primary user intent
 - Fallback to "General Inquiry" on errors
 - No manual tagging required
@@ -148,11 +148,12 @@ General Inquiry: #10b981 (green)
 - Perfect for demos and small-scale deployments
 - Easy to backup and migrate
 
-### Why Claude Haiku?
-- Cost-efficient for high-volume classification
-- Fast response times (400-2500ms)
+### Why Groq Llama 3.3 70B?
+- Ultra-fast inference (sub-second response times)
+- Free tier with generous limits
 - Excellent at following strict instructions
 - Reliable category classification
+- Open-source model with great performance
 
 ### Why React + Vite?
 - Fast development with hot module replacement
@@ -318,4 +319,4 @@ MIT License - Feel free to use this project for learning or commercial purposes.
 - Built with Claude AI assistance
 - Inspired by modern ops dashboards
 - Uses IBM Plex fonts (open source)
-- Powered by Anthropic's Claude API
+- Powered by Groq's Lightning-Fast LLM API

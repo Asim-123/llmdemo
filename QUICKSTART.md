@@ -14,7 +14,7 @@ cp .env.example .env
 
 Your `.env` file should look like:
 ```
-ANTHROPIC_API_KEY=sk-ant-api03-xxxxx
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxx
 ```
 
 ### 2. Start the application
@@ -99,7 +99,7 @@ npm run dev
 
 **API key not working?**
 - Make sure there are no quotes around the key in `.env`
-- Verify the key is valid at https://console.anthropic.com/
+- Verify the key is valid at https://console.groq.com/
 
 **Docker issues?**
 - Try: `docker-compose down -v` then `docker-compose up --build`
