@@ -1,10 +1,30 @@
 import os
+from pathlib import Path
 from groq import Groq
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load .env file from the backend directory
+env_path = Path(__file__).parent / ".env"
+if env_path.exists():
+    load_dotenv(dotenv_path=env_path, override=True)
+else:
+    # Also try loading from current directory
+    load_dotenv(override=True)
 
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+# Get API key from environment variable (check both .env and system env)
+api_key = os.getenv("GROQ_API_KEY")
+
+if not api_key:
+    # Provide helpful error message
+    env_file = Path(__file__).parent / ".env"
+    error_msg = f"GROQ_API_KEY not found!\n\n"
+    error_msg += f"Please do one of the following:\n"
+    error_msg += f"1. Create/update {env_file} with: GROQ_API_KEY=your_key_here\n"
+    error_msg += f"2. Set environment variable: $env:GROQ_API_KEY='your_key_here' (PowerShell)\n"
+    error_msg += f"3. Set environment variable: export GROQ_API_KEY='your_key_here' (Linux/Mac)"
+    raise ValueError(error_msg)
+
+client = Groq(api_key=api_key)
 
 CLASSIFICATION_PROMPT = """You are a customer support ticket classifier. Classify the following support conversation into EXACTLY ONE of these five categories:
 
